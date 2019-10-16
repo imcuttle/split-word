@@ -5,7 +5,7 @@
  * @description
  */
 // const {wordChunks, wordSlice, wordCount} = require('./index-fsm');
-const { wordChunks, wordSlice, wordCount } = require('..')
+const { wordChunks, wordSlice, wordCount } = require('../index')
 
 describe('split-word', function() {
   it('should split-word', () => {
@@ -46,6 +46,9 @@ Array [
   "好",
 ]
 `)
+
+    expect(wordChunks('  ')).toMatchInlineSnapshot(`Array []`)
+    expect(wordChunks('')).toMatchInlineSnapshot(`Array []`)
   })
 
   it('wordslice', () => {

@@ -46,6 +46,7 @@ export function wordChunks(string) {
       }
     },
     transitions: [
+      { name: 'bye', from: '*', to: 'end' },
       { name: 'eat', from: 'none', to: ch => charType(ch) },
       { name: 'eat', from: 'space', to: ch => charType(ch) },
       {
@@ -70,10 +71,17 @@ export function wordChunks(string) {
       }
     ],
     methods: {
-      onTransition: function({ from, to }, char) {
-        if (char == null) {
-          return
+      onBye: function({ from, to }) {
+        if (to === 'end') {
+          switch (from) {
+            case 'ascii-word':
+            case 'ready':
+              this.pushAndReset()
+              break
+          }
         }
+      },
+      onEat: function({ from, to, transition }, char) {
         const type = charType(char)
         switch (from) {
           case 'ascii-word':
@@ -100,10 +108,7 @@ export function wordChunks(string) {
   for (let i = 0; i < string.length; i++) {
     fsm.eat(string[i])
   }
-
-  if (fsm.word) {
-    fsm.pushAndReset()
-  }
+  fsm.bye()
 
   return fsm.chunks
 }
