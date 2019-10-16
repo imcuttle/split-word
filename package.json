@@ -29,6 +29,7 @@
     "imcuttle",
     "split",
     "word",
+    "count",
     "split-word"
   ],
   "license": "MIT",

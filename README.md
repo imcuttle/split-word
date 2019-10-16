@@ -20,7 +20,11 @@ yarn add split-word
 ## Usage
 
 ```javascript
-const splitWord = require('split-word')
+const { wordChunks, wordCount, wordSlice } = require('split-word')
+
+wordCount('你好 hello world') // => 4
+wordChunks('你好 hello world') // => ['你', '好 ', 'hello ', 'world']
+wordSlice('你好 hello world', 0, 2) // => '你好 '
 ```
 
 ## Contributing
