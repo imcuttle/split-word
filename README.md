@@ -9,6 +9,8 @@
 
 > Splits words like Microsoft word with state machine
 
+![](./split-word.svg)
+
 ## Installation
 
 ```bash
