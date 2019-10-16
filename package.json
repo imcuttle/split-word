@@ -1,6 +1,6 @@
 {
   "name": "split-word",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.cjs.js",
   "description": "Splits words like Microsoft word with state machine",
   "author": "imcuttle <moyuyc95@gmail.com>",
